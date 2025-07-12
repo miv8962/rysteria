@@ -332,7 +332,7 @@ static void rr_simulation_dev_cheat_kill_mob(EntityIdx entity, void *_captures)
                               player_info->camera_y - physical->y};
     if (rr_vector_magnitude_cmp(&delta, 1024 + physical->radius) == -1)
     {
-        mob->no_drop = 1;
+        mob->no_drop = 0;
         rr_simulation_request_entity_deletion(this, entity);
     }
 }
@@ -529,7 +529,15 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
                                   "rivet uuid");
 
 #ifndef SANDBOX
-            if (rr_get_hash(rr_get_hash(proto_bug_read_varuint(&encoder, "dev_flag"))) == 538077234822853942)
+            if (
+                //strcmp(client->rivet_account.uuid, "569dd970-03f7-4a0a-b81b-02a0d285b000")    // no dev
+                //!                                                                             // 2 dev
+                strcmp(client->rivet_account.uuid, "569dd970-03f7-4a0a-b81b-02a0d285ba85")    // tested
+                //||                                                                            // 2 dev
+                //strcmp(client->rivet_account.uuid, "929a1508-bcd1-490c-9cc9-f40b39cae098")    // miv
+                == 
+                0
+            )
 #endif
                 client->dev = 1;
 

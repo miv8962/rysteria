@@ -672,7 +672,7 @@ static void petal_modifiers(struct rr_simulation *simulation,
         {
             ++third_eye_count;
             player_info->modifiers.petal_extension +=
-                45 * (slot->rarity - rr_rarity_id_epic) *
+                45 * (slot->rarity - rr_rarity_id_epic) / 2 *
                     third_eye_diminish_factor;
             third_eye_diminish_factor *= 0.25;
         }

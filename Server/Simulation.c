@@ -100,13 +100,13 @@ struct zone
 #define ZONE_POSITION_COUNT 9
 
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
-    {4,  0,  7,  3, fern_zone},
-    {16, 3,  5,  4, pter_meteor_zone},
+    {2,  7,  9,  7, fern_zone},
+    {2, 23,  8,  7, pter_meteor_zone},
     {17, 8,  3,  2, ornith_pachy_zone},
-    {26, 11, 3,  3, trice_dako_zone},
-    {10, 22, 4,  3, anky_trex_zone},
-    {23, 22, 4,  3, edmo_zone},
-    {16, 25, 5,  2, tree_zone},
+    {33, 22, 5,  4, trice_dako_zone},
+    {28, 26, 5,  6, anky_trex_zone},
+    {25, 25, 2,  6, edmo_zone},
+    {10, 15, 3,  3, tree_zone},
     {13, 27, 11, 4, tree_zone},
     {2,  13, 6, 17, pter_zone},
 };
@@ -291,7 +291,7 @@ static void despawn_mob(EntityIdx entity, void *_simulation)
             mob->ticks_to_despawn = 30 * 25;
         if (--mob->ticks_to_despawn == 0)
         {
-            mob->no_drop = 1;
+            mob->no_drop = 0;
             rr_simulation_request_entity_deletion(this, entity);
         }
     }
@@ -428,7 +428,7 @@ void rr_simulation_tick(struct rr_simulation *this)
     RR_TIME_BLOCK("centipede", { rr_system_centipede_tick(this); });
     RR_TIME_BLOCK("health", { rr_system_health_tick(this); });
     RR_TIME_BLOCK("camera", { rr_system_camera_tick(this); });
-    RR_TIME_BLOCK("checkpoints", { rr_system_checkpoints_tick(this); });
+    // RR_TIME_BLOCK("checkpoints", { rr_system_checkpoints_tick(this); });
     RR_TIME_BLOCK("spawn_tick", { tick_maze(this); });
     memcpy(this->deleted_last_tick, this->pending_deletions,
            sizeof this->pending_deletions);

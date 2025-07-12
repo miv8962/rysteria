@@ -33,7 +33,10 @@
 #include <Shared/pb.h>
 #include <Shared/MagicNumber.h>
 
-double CRAFT_XP_GAINS[rr_rarity_id_max - 1] = {1, 8, 60, 750, 25000, 1000000, 100000000};
+double CRAFT_XP_GAINS[rr_rarity_id_max - 1] = {1,             8,             60,            750,
+                                               25000,         1000000,       100000000,     5000000000,
+                                               10000000000,   24000000000,   90000000000,   130000000000,
+                                               250000000000,  700000000000,  2000000000000};
 
 void rr_server_client_init(struct rr_server_client *this)
 {
@@ -68,11 +71,11 @@ void rr_server_client_create_flower(struct rr_server_client *this)
         checkpoint = 4;
     rr_component_physical_set_x(
         physical,
-        2 * decl->grid_size * (decl->checkpoints[checkpoint].spawn_x +
+        2 * decl->grid_size * (decl->spawn_zones[spawn_zone].x +
                                rr_frand()));
     rr_component_physical_set_y(
         physical,
-        2 * decl->grid_size * (decl->checkpoints[checkpoint].spawn_y +
+        2 * decl->grid_size * (decl->spawn_zones[spawn_zone].y +
                                rr_frand()));
     struct rr_binary_encoder encoder;
     rr_binary_encoder_init(&encoder, outgoing_message);
@@ -219,7 +222,7 @@ void rr_server_client_craft_petal(struct rr_server_client *this,
                 rr_simulation_get_health(&server->simulation,
                                          this->player_info->flower_id);
             rr_component_health_set_max_health(health,
-                                               200 * pow(1.0256, level - 1));
+                                               100 * pow(1.0256, level - 1));
             health->damage = health->max_health * 0.1;
         }
     }
@@ -253,11 +256,11 @@ int rr_server_client_read_from_api(struct rr_server_client *this,
     {
         this->checkpoint = 4;
         this->experience = 0;
-        for (uint32_t lvl = 2; lvl <= 140; ++lvl)
+        for (uint32_t lvl = 2; lvl <= 300; ++lvl)
             this->experience += xp_to_reach_level(lvl);
         for (uint8_t id = 1; id < rr_petal_id_max; ++id)
             for (uint8_t rarity = 0; rarity < rr_rarity_id_max; ++rarity)
-                this->inventory[id][rarity] = 1000;
+                this->inventory[id][rarity] = 1000000;
         for (uint8_t id = 0; id < rr_mob_id_max; ++id)
             for (uint8_t rarity = 0; rarity < rr_rarity_id_max; ++rarity)
                 this->mob_gallery[id][rarity] = 1;
@@ -265,10 +268,10 @@ int rr_server_client_read_from_api(struct rr_server_client *this,
     }
     this->experience = rr_binary_encoder_read_float64(encoder);
     this->checkpoint = rr_binary_encoder_read_uint8(encoder);
-    if (this->checkpoint >=
-        rr_simulation_get_arena(
-            &this->server->simulation, 1)->maze->checkpoint_count)
-        this->checkpoint = 0;
+    // if (this->checkpoint >=
+    //     rr_simulation_get_arena(
+    //         &this->server->simulation, 1)->maze->checkpoint_count)
+    //     this->checkpoint = 0;
     uint8_t id = rr_binary_encoder_read_uint8(encoder);
     while (id)
     {

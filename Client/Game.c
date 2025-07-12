@@ -189,7 +189,7 @@ static void rr_game_autocraft_tick(struct rr_game *this, float delta)
     if (!this->crafting_data.autocraft || this->crafting_data.animation > 0 ||
         this->crafting_data.autocraft_animation > 0)
         return;
-    for (uint8_t id = 1; id <= rr_petal_id_meteor; ++id)
+    for (uint8_t id = 1; id <= rr_petal_id_sapphire; ++id)
     {
         uint32_t sum = 0;
         for (uint8_t rarity = 0; rarity < rr_rarity_id_max; ++rarity)
@@ -925,7 +925,7 @@ void rr_game_websocket_on_event_function(enum rr_websocket_event_type type,
                 uint32_t level = proto_bug_read_varuint(&encoder, "level");
                 if (this->squad.squad_members[i].level != level)
                 {
-                    float health = 200 * pow(1.0256, level - 1);
+                    float health = 100 * pow(1.0256, level - 1);
                     float damage = 0.1 * health;
                     this->squad.squad_members[i].level = level;
                     sprintf(this->squad.squad_members[i].level_text,
@@ -1054,7 +1054,7 @@ void rr_game_websocket_on_event_function(enum rr_websocket_event_type type,
                     uint32_t level = proto_bug_read_varuint(&encoder, "level");
                     if (squad->squad_members[i].level != level)
                     {
-                        float health = 200 * pow(1.0256, level - 1);
+                        float health = 100 * pow(1.0256, level - 1);
                         float damage = 0.1 * health;
                         squad->squad_members[i].level = level;
                         sprintf(squad->squad_members[i].level_text,

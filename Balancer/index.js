@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-const rr_rarity_id_max = 7;
+const rr_rarity_id_max = 16;
 
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext('2d');
@@ -51,7 +51,7 @@ function init_rarity_coefficients()
 
 }
 
-const names = ["none","common","unusual","rare","epic","legendary","mythic","exotic"]
+const names = ["none","common","unusual","rare","epic","legendary","mythic","exotic","ultimate","quantum"]
 function loop()
 {
     let seed = parseFloat(document.getElementById("seed").value);

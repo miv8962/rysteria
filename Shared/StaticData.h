@@ -90,15 +90,23 @@ enum rr_biome_id
 
 enum rr_rarity_id
 {
-    rr_rarity_id_common,
-    rr_rarity_id_unusual,
-    rr_rarity_id_rare,
-    rr_rarity_id_epic,
-    rr_rarity_id_legendary,
-    rr_rarity_id_mythic,
-    rr_rarity_id_exotic,
-    rr_rarity_id_ultimate,
-    rr_rarity_id_max
+    rr_rarity_id_common,     // 0
+    rr_rarity_id_unusual,    // 1
+    rr_rarity_id_rare,       // 2
+    rr_rarity_id_epic,       // 3
+    rr_rarity_id_legendary,  // 4
+    rr_rarity_id_mythic,     // 5
+    rr_rarity_id_exotic,     // 6
+    rr_rarity_id_ultimate,   // 7
+    rr_rarity_id_quantum,    // 8
+    rr_rarity_id_aurous,     // 9
+    rr_rarity_id_eternal,    // 10
+    rr_rarity_id_hyper,      // 11
+    rr_rarity_id_sunshine,   // 12
+    rr_rarity_id_nebula,     // 13
+    rr_rarity_id_infinity,   // 14
+    rr_rarity_id_calamity,   // 15
+    rr_rarity_id_max         // 16
 };
 
 enum rr_petal_id
@@ -138,7 +146,11 @@ enum rr_petal_id
     rr_petal_id_sand,      // 31
     rr_petal_id_mint,      // 32
 
-    rr_petal_id_max,       // 33
+    rr_petal_id_pearl,     // 33
+    rr_petal_id_rice,      // 34
+    rr_petal_id_sapphire,  // 35
+
+    rr_petal_id_max,       // 36
 };
 
 enum rr_mob_id
@@ -229,7 +241,7 @@ extern char const *RR_MOB_NAMES[rr_mob_id_max];
 extern struct rr_mob_rarity_scale RR_MOB_RARITY_SCALING[rr_rarity_id_max];
 extern struct rr_petal_rarity_scale RR_PETAL_RARITY_SCALE[rr_rarity_id_max];
 extern double RR_MOB_LOOT_RARITY_COEFFICIENTS[rr_rarity_id_max];
-extern double RR_DROP_RARITY_COEFFICIENTS[rr_rarity_id_exotic + 2];
+extern double RR_DROP_RARITY_COEFFICIENTS[rr_rarity_id_nebula + 2];
 extern double RR_MOB_WAVE_RARITY_COEFFICIENTS[rr_rarity_id_max + 1];
 
 extern uint32_t RR_MOB_DIFFICULTY_COEFFICIENTS[rr_mob_id_max];
@@ -275,8 +287,9 @@ struct rr_maze_declaration
     uint32_t maze_dim;
     float grid_size;
     struct rr_maze_grid *maze;
-    uint8_t checkpoint_count;
-    struct rr_checkpoint checkpoints[11];
+    // uint8_t checkpoint_count;
+    // struct rr_checkpoint checkpoints[11];
+    struct rr_spawn_zone spawn_zones[4];
 };
 
 #define RR_DECLARE_MAZE(name, size)                                            \
