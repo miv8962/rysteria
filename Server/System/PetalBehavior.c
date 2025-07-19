@@ -665,6 +665,24 @@ static void petal_modifiers(struct rr_simulation *simulation,
         {
             ++crest_count;
             RR_SET_IF_LESS(player_info->camera_fov, 1 - 0.1 * slot->rarity)
+            if (slot->rarity == rr_rarity_id_quantum)
+                player_info->camera_fov = 0.285;
+            if (slot->rarity == rr_rarity_id_aurous)
+                player_info->camera_fov = 0.25;
+            if (slot->rarity == rr_rarity_id_eternal)
+                player_info->camera_fov = 0.222;
+            if (slot->rarity == rr_rarity_id_hyper)
+                player_info->camera_fov = 0.2;
+            if (slot->rarity == rr_rarity_id_sunshine)
+                player_info->camera_fov = 0.1818;
+            if (slot->rarity == rr_rarity_id_nebula)
+                player_info->camera_fov = 0.166;
+            if (slot->rarity == rr_rarity_id_infinity)
+                player_info->camera_fov = 0.1538;
+            if (slot->rarity == rr_rarity_id_calamity)
+                player_info->camera_fov = 0.125;
+            if (slot->rarity == rr_rarity_id_unique)
+                player_info->camera_fov = 0.1;
         }
         else if (data->id == rr_petal_id_droplet)
             ++rot_count;

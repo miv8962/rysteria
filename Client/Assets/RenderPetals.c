@@ -538,6 +538,26 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_fill(renderer);
             rr_renderer_stroke(renderer);
             break;
+        case rr_petal_id_ruby:
+            rr_renderer_set_fill(renderer, 0xffeb5b4b);
+            rr_renderer_set_stroke(renderer, 0xffb34230);
+            rr_renderer_set_line_cap(renderer, 1);
+            rr_renderer_set_line_join(renderer, 1);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_move_to(renderer, 0.00, -9.00);
+            rr_renderer_line_to(renderer, -10.00, 9.00);
+            rr_renderer_line_to(renderer, 10.00, 9.00);
+            rr_renderer_line_to(renderer, 0.00, -9.00);
+            /*
+            rr_renderer_move_to(renderer, 0.00, 9.00);
+            rr_renderer_line_to(renderer, 9.00, -9.00);
+            rr_renderer_line_to(renderer, -9.00, -9.00);
+            rr_renderer_line_to(renderer, 0.00, 9.00);
+            */
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
         case rr_petal_id_feather:
             rr_renderer_scale(renderer, 0.1);
             rr_renderer_set_fill(renderer, 0xffcccccc);

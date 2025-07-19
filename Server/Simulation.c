@@ -102,10 +102,10 @@ struct zone
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {2,  7,  9,  7, fern_zone},
     {2, 23,  8,  7, pter_meteor_zone},
-    {17, 8,  3,  2, ornith_pachy_zone},
+    {28, 15,  7,  6, ornith_pachy_zone},
     {33, 22, 5,  4, trice_dako_zone},
     {28, 26, 5,  6, anky_trex_zone},
-    {25, 25, 2,  6, edmo_zone},
+    {0, 0, 0,  0, edmo_zone},
     {10, 15, 3,  3, tree_zone},
     {13, 27, 11, 4, tree_zone},
     {2,  13, 6, 17, pter_zone},

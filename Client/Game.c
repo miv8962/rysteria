@@ -118,7 +118,7 @@ uint32_t rr_game_get_adjusted_inventory_count(struct rr_game *this, uint8_t id,
 static void rr_game_update_significant_rarity(struct rr_game *this)
 {
     uint32_t count = 0;
-    for (uint8_t rarity = 0; rarity < rr_rarity_id_max; ++rarity)
+    for (uint8_t rarity = 0; rarity < rr_rarity_id_unique; ++rarity)
         for (uint8_t id = 1; id < rr_petal_id_max; ++id)
         {
             count += this->inventory[id][rarity];
@@ -189,7 +189,7 @@ static void rr_game_autocraft_tick(struct rr_game *this, float delta)
     if (!this->crafting_data.autocraft || this->crafting_data.animation > 0 ||
         this->crafting_data.autocraft_animation > 0)
         return;
-    for (uint8_t id = 1; id <= rr_petal_id_sapphire; ++id)
+    for (uint8_t id = 1; id <= rr_rarity_id_unique; ++id)
     {
         uint32_t sum = 0;
         for (uint8_t rarity = 0; rarity < rr_rarity_id_max; ++rarity)
@@ -465,6 +465,7 @@ void rr_game_init(struct rr_game *this)
                     rr_ui_v_container_init(rr_ui_container_init(), 0, 10,
                         rr_ui_v_container_init(rr_ui_container_init(), 0, 10,
                             rr_ui_text_init("Rysteria", 96, 0xffffffff),
+                            rr_ui_text_init("By miv 8962", 32, 0xffffffff),
                             rr_ui_h_container_init(
                                 rr_ui_container_init(), 0, 20,
                                 rr_ui_link_toggle(

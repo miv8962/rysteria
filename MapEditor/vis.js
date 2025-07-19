@@ -1755,7 +1755,9 @@ let rarity_colors = [
     '#3d3d3d', // inf
     '#262626', // INF
     '#852121', // cal
-    '#781a1a' // CAL
+    '#781a1a', // CAL
+    '#eeeeee', // Unique
+    '#e0e0e0' // UNIQUE
     // "#000", // 0
     // "#7eef6d", // c
     // "", // C

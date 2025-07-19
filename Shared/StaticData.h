@@ -106,7 +106,8 @@ enum rr_rarity_id
     rr_rarity_id_nebula,     // 13
     rr_rarity_id_infinity,   // 14
     rr_rarity_id_calamity,   // 15
-    rr_rarity_id_max         // 16
+    rr_rarity_id_unique,     // 16
+    rr_rarity_id_max         // 17
 };
 
 enum rr_petal_id
@@ -149,8 +150,9 @@ enum rr_petal_id
     rr_petal_id_pearl,     // 33
     rr_petal_id_rice,      // 34
     rr_petal_id_sapphire,  // 35
+    rr_petal_id_ruby,      // 36
 
-    rr_petal_id_max,       // 36
+    rr_petal_id_max,       // 37
 };
 
 enum rr_mob_id
