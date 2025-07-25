@@ -532,9 +532,9 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
             if (
                 strcmp(client->rivet_account.uuid, "00000000-0000-0000-0000-000000000000")    // no dev
                 //!                                                                             // 2 dev
-                //strcmp(client->rivet_account.uuid, "")    // tested
+                //strcmp(client->rivet_account.uuid, "569dd970-03f7-4a0a-b81b-02a0d285ba85")    // tested
                 //||                                                                            // 2 dev
-                //strcmp(client->rivet_account.uuid, "")    // miv
+                //strcmp(client->rivet_account.uuid, "929a1508-bcd1-490c-9cc9-f40b39cae098")    // miv
                 == 
                 0
             )
