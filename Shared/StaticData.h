@@ -112,47 +112,52 @@ enum rr_rarity_id
 
 enum rr_petal_id
 {
-    rr_petal_id_none,      // 0
-    rr_petal_id_basic,     // 1
-    rr_petal_id_pellet,    // 2
-    rr_petal_id_fossil,    // 3
-    rr_petal_id_stinger,   // 4
-    rr_petal_id_berry,     // 5
-    rr_petal_id_shell,     // 6
-    rr_petal_id_peas,      // 7
-    rr_petal_id_leaf,      // 8
-    rr_petal_id_egg,       // 9
-    rr_petal_id_magnet,    // 10
-    rr_petal_id_uranium,   // 11
-    rr_petal_id_feather,   // 12
-    rr_petal_id_azalea,    // 13
-    rr_petal_id_bone,      // 14
-    rr_petal_id_web,       // 15
-    rr_petal_id_seed,      // 16
-    rr_petal_id_gravel,    // 17
-    rr_petal_id_club,      // 18
-    rr_petal_id_crest,     // 19
-    rr_petal_id_droplet,   // 20
-    rr_petal_id_beak,      // 21
-    rr_petal_id_lightning, // 22
-    rr_petal_id_third_eye, // 23
-    rr_petal_id_nest,      // 24
-    rr_petal_id_fireball,  // 25
-    rr_petal_id_meat,      // 26
-    rr_petal_id_bubble,    // 27
-    rr_petal_id_meteor,    // 28
+    rr_petal_id_none,          // 0
+    rr_petal_id_basic,         // 1
+    rr_petal_id_pellet,        // 2
+    rr_petal_id_fossil,        // 3
+    rr_petal_id_stinger,       // 4
+    rr_petal_id_berry,         // 5
+    rr_petal_id_shell,         // 6
+    rr_petal_id_peas,          // 7
+    rr_petal_id_leaf,          // 8
+    rr_petal_id_egg,           // 9
+    rr_petal_id_magnet,        // 10
+    rr_petal_id_uranium,       // 11
+    rr_petal_id_feather,       // 12
+    rr_petal_id_azalea,        // 13
+    rr_petal_id_bone,          // 14
+    rr_petal_id_web,           // 15
+    rr_petal_id_seed,          // 16
+    rr_petal_id_gravel,        // 17
+    rr_petal_id_club,          // 18
+    rr_petal_id_crest,         // 19
+    rr_petal_id_droplet,       // 20
+    rr_petal_id_beak,          // 21
+    rr_petal_id_lightning,     // 22
+    rr_petal_id_third_eye,     // 23
+    rr_petal_id_nest,          // 24
+    rr_petal_id_fireball,      // 25
+    rr_petal_id_meat,          // 26
+    rr_petal_id_bubble,        // 27
+    rr_petal_id_meteor,        // 28
 
-    rr_petal_id_mandible,  // 29
-    rr_petal_id_wax,       // 30
-    rr_petal_id_sand,      // 31
-    rr_petal_id_mint,      // 32
+    rr_petal_id_mandible,      // 29
+    rr_petal_id_wax,           // 30
+    rr_petal_id_sand,          // 31
+    rr_petal_id_mint,          // 32
 
-    rr_petal_id_pearl,     // 33
-    rr_petal_id_rice,      // 34
-    rr_petal_id_sapphire,  // 35
-    rr_petal_id_ruby,      // 36
+    rr_petal_id_pearl,         // 33
+    rr_petal_id_rice,          // 34
+    rr_petal_id_sapphire,      // 35
+    rr_petal_id_ruby,          // 36
+    rr_petal_id_golden_leaf,   // 37
+    rr_petal_id_diamond_leaf,  // 38
+    rr_petal_id_emerald_leaf,  // 39
+    rr_petal_id_amethyst_leaf, // 40
+    rr_petal_id_golden_meteor, // 41
 
-    rr_petal_id_max,       // 37
+    rr_petal_id_max,           // 42
 };
 
 enum rr_mob_id
@@ -169,17 +174,18 @@ enum rr_mob_id
     rr_mob_id_meteor,             // 9
     rr_mob_id_quetzalcoatlus,     // 10
     rr_mob_id_edmontosaurus,      // 11
+    rr_mob_id_golden_meteor,      // 12
 
-    rr_mob_id_ant,                // 12
-    rr_mob_id_hornet,             // 13
-    rr_mob_id_dragonfly,          // 14
-    rr_mob_id_honeybee,           // 15
-    rr_mob_id_beehive,            // 16
-    rr_mob_id_spider,             // 17
-    rr_mob_id_house_centipede,    // 18
-    rr_mob_id_lanternfly,         // 19
+    rr_mob_id_ant,                // 13
+    rr_mob_id_hornet,             // 14
+    rr_mob_id_dragonfly,          // 15
+    rr_mob_id_honeybee,           // 16
+    rr_mob_id_beehive,            // 17
+    rr_mob_id_spider,             // 18
+    rr_mob_id_house_centipede,    // 19
+    rr_mob_id_lanternfly,         // 20
 
-    rr_mob_id_max,                // 20
+    rr_mob_id_max,                // 21
 };
 
 struct rr_petal_base_stat_scale

@@ -49,21 +49,23 @@ void rr_component_petal_render(EntityIdx entity, struct rr_game *game,
     if (petal->rarity >= rr_rarity_id_exotic)
     {
         struct rr_particle_manager *particle_manager =
-            petal->id != rr_petal_id_meteor
+            petal->id != rr_petal_id_meteor || rr_petal_id_golden_meteor
                 ? &game->default_particle_manager
                 : &game->foreground_particle_manager;
         float exotic_coeff = petal->rarity == rr_rarity_id_exotic ? 0.5 : 1;
         float size_coeff =
             physical->on_title_screen ? physical->radius / 20 : 1;
         float colorful_coeff = petal->id == rr_petal_id_fireball ||
-                               petal->id == rr_petal_id_meteor ? 2 : 1;
+                               petal->id == rr_petal_id_meteor ||
+                               petal->id == rr_petal_id_golden_meteor ? 3 : 1;
         float pos_offset = 0;
         if (physical->on_title_screen)
         {
             if (petal->id == rr_petal_id_magnet ||
                 petal->id == rr_petal_id_crest ||
                 petal->id == rr_petal_id_bubble ||
-                petal->id == rr_petal_id_meteor)
+                petal->id == rr_petal_id_meteor ||
+                petal->id == rr_petal_id_golden_meteor)
                 pos_offset = physical->radius * rr_frand();
         }
         struct rr_simulation_animation *particle =
@@ -103,6 +105,8 @@ void rr_component_petal_render(EntityIdx entity, struct rr_game *game,
         }
         else if (petal->id == rr_petal_id_meteor)
             particle->color = 0xffab3423;
+        else if (petal->id == rr_petal_id_golden_meteor)
+            particle->color = 0xff8f8721;
     }
     if (game->cache.tint_petals)
         rr_renderer_add_color_filter(renderer, RR_RARITY_COLORS[petal->rarity],

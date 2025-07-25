@@ -112,6 +112,7 @@ void rr_renderer_draw_mob(struct rr_renderer *renderer, uint8_t id,
         rr_renderer_scale(renderer, 0.3f);
     case rr_mob_id_tree:
     case rr_mob_id_meteor:
+    case rr_mob_id_golden_meteor:
     case rr_mob_id_beehive:
         rr_renderer_scale(renderer, 0.4f);
         render_sprite(renderer, id, 0, flags);
@@ -422,11 +423,11 @@ void rr_renderer_mob_cache_init()
         &mob_sprites[8], NULL, 144, 144, rr_ankylosaurus_head_draw, 336, 192,
         rr_ankylosaurus_body_draw, 336, 192, rr_ankylosaurus_tail_draw, 0);
 
-    rr_renderer_spritesheet_init(&mob_sprites[9], NULL, 240, 144,
-                                 rr_meteor_draw, 0);
+    rr_renderer_spritesheet_init(
+        &mob_sprites[9], NULL, 240, 144, rr_meteor_draw, 0);
 
-    rr_renderer_spritesheet_init(&friendly_mob_sprites[1], friendly_mask,
-                                 240, 144, rr_meteor_draw, 0);
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[1], friendly_mask, 240, 144, rr_meteor_draw, 0);
 
     rr_renderer_spritesheet_init(
         &mob_sprites[10], NULL, 336, 192, rr_quetzalcoatlus_head_draw, 336, 192,
@@ -438,35 +439,39 @@ void rr_renderer_mob_cache_init()
         rr_edmontosaurus_body_draw, 240, 240, rr_edmontosaurus_leg1_draw, 240,
         240, rr_edmontosaurus_leg2_draw, 336, 192, rr_edmontosaurus_tail_draw,
         0);
+
+    rr_renderer_spritesheet_init(
+        &mob_sprites[12], NULL, 240, 144, rr_meteor_draw /*rr_golden_meteor_draw*/, 0);
+
     // garden
-    rr_renderer_spritesheet_init(&mob_sprites[12], NULL, 192, 192,
+    rr_renderer_spritesheet_init(&mob_sprites[13], NULL, 192, 192,
                                  rr_ant_head_draw, 192, 192, rr_ant_thorax_draw,
                                  192, 192, rr_ant_abdomen_draw, 192, 192,
                                  rr_ant_leg_draw, 0);
 
     rr_renderer_spritesheet_init(
-        &mob_sprites[13], NULL, 192, 192, rr_hornet_head_draw, 192, 192,
+        &mob_sprites[14], NULL, 192, 192, rr_hornet_head_draw, 192, 192,
         rr_hornet_thorax_draw, 192, 192, rr_hornet_abdomen_draw, 192, 192,
         rr_hornet_leg_draw, 192, 192, rr_hornet_wing_draw, 0);
 
     rr_renderer_spritesheet_init(
-        &mob_sprites[14], NULL, 192, 192, rr_dragonfly_head_draw, 192, 192,
+        &mob_sprites[15], NULL, 192, 192, rr_dragonfly_head_draw, 192, 192,
         rr_dragonfly_thorax_draw, 192, 192, rr_dragonfly_abdomen_draw, 192, 192,
         rr_dragonfly_wing_draw, 0);
 
     rr_renderer_spritesheet_init(
-        &mob_sprites[15], NULL, 192, 192, rr_honeybee_head_draw, 192, 192,
+        &mob_sprites[16], NULL, 192, 192, rr_honeybee_head_draw, 192, 192,
         rr_honeybee_thorax_draw, 192, 192, rr_honeybee_abdomen_draw, 192, 192,
         rr_honeybee_leg_draw, 192, 192, rr_honeybee_wing_draw, 0);
 
-    rr_renderer_spritesheet_init(&mob_sprites[16], NULL, 384, 384,
+    rr_renderer_spritesheet_init(&mob_sprites[17], NULL, 384, 384,
                                  rr_beehive_draw, 0);
 
     rr_renderer_spritesheet_init(
-        &mob_sprites[17], NULL, 240, 240, rr_spider_head_draw, 240, 240,
+        &mob_sprites[18], NULL, 240, 240, rr_spider_head_draw, 240, 240,
         rr_spider_abdomen_draw, 240, 240, rr_spider_leg_draw, 0);
 
-    rr_renderer_spritesheet_init(&mob_sprites[18], NULL, 240, 240,
+    rr_renderer_spritesheet_init(&mob_sprites[19], NULL, 240, 240,
                                  rr_house_centipede_head_draw, 240, 240,
                                  rr_house_centipede_body_draw, 240, 240,
                                  rr_house_centipede_leg_draw, 0);

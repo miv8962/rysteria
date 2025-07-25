@@ -67,6 +67,10 @@ uint8_t pter_meteor_zone()
 {
     return rr_frand() > 0.02 ? rr_mob_id_pteranodon : rr_mob_id_meteor;
 }
+uint8_t pter_golden_meteor_zone()
+{
+    return rr_frand() > 0.001 ? rr_mob_id_pteranodon : rr_mob_id_golden_meteor;
+}
 uint8_t ornith_pachy_zone()
 {
     return rr_frand() > 0.5 ? rr_mob_id_ornithomimus : rr_mob_id_pachycephalosaurus;
@@ -104,7 +108,7 @@ static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {2, 23,  8,  7, pter_meteor_zone},
     {28, 15,  7,  6, ornith_pachy_zone},
     {33, 22, 5,  4, trice_dako_zone},
-    {28, 26, 5,  6, anky_trex_zone},
+    {27, 23, 5,  8, anky_trex_zone},
     {0, 0, 0,  0, edmo_zone},
     {10, 15, 3,  3, tree_zone},
     {13, 27, 11, 4, tree_zone},
@@ -195,7 +199,8 @@ static void spawn_mob(struct rr_simulation *this, uint32_t grid_x,
                     id != rr_mob_id_ornithomimus &&
                     id != rr_mob_id_triceratops &&
                     id != rr_mob_id_fern &&
-                    id != rr_mob_id_meteor)
+                    id != rr_mob_id_meteor &&
+                    id != rr_mob_id_golden_meteor)
                     break;
             }
     }

@@ -142,7 +142,7 @@ void rr_component_player_info_petal_swap(struct rr_component_player_info *this,
 
     slot->count = RR_PETAL_DATA[slot->id].count[slot->rarity];
     for (uint32_t i = 0; i < slot->count; ++i)
-        slot->petals[i].cooldown_ticks = RR_PETAL_DATA[slot->id].cooldown + 25;
+        slot->petals[i].cooldown_ticks = RR_PETAL_DATA[slot->id].cooldown + 1 /*25*/;
     this->protocol_state |= state_flags_petals;
 }
 

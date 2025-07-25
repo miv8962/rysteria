@@ -742,6 +742,11 @@ system_egg_hatching_logic(struct rr_simulation *simulation,
         m_id = rr_mob_id_meteor;
         m_rar = petal->rarity >= 1 ? petal->rarity - 1 : 0;
     }
+    else if (petal->id == rr_petal_id_golden_meteor)
+    {
+        m_id = rr_mob_id_golden_meteor;
+        m_rar = petal->rarity >= 1 ? petal->rarity : 0;
+    }
     struct rr_component_physical *physical =
         rr_simulation_get_physical(simulation, p_petal->entity_hash);
     struct rr_component_relations *relations =
@@ -922,8 +927,16 @@ static void rr_system_petal_reload_foreach_function(EntityIdx id,
                     if (data->id == rr_petal_id_meteor)
                         system_egg_hatching_logic(simulation, player_info,
                                                   p_petal);
+                    if (data->id == rr_petal_id_golden_meteor)
+                        system_egg_hatching_logic(simulation, player_info,
+                                                  p_petal);
                 }
                 if (data->id == rr_petal_id_meteor)
+                {
+                    if (--clump_count == 0)
+                        --rotation_pos;
+                }
+                if (data->id == rr_petal_id_golden_meteor)
                 {
                     if (--clump_count == 0)
                         --rotation_pos;

@@ -226,6 +226,11 @@ EntityIdx rr_simulation_alloc_mob(struct rr_simulation *this,
         physical->mass *= 25;
         team_id = rr_simulation_team_id_players;
     }
+    if (mob_id == rr_mob_id_golden_meteor)
+    {
+        physical->mass *= 75;
+        team_id = rr_simulation_team_id_players;
+    }
     rr_component_relations_set_team(relations, team_id);
     rr_component_relations_update_root_owner(this, relations);
     ai->aggro_range = 800 * sqrtf(rarity_id + 1);
@@ -269,6 +274,8 @@ EntityIdx rr_simulation_alloc_mob(struct rr_simulation *this,
         health->damage = mob_data->damage * rarity_scale->damage;
         health->damage_paused = 25;
         if (mob_id == rr_mob_id_edmontosaurus)
+            health->damage_reduction = 10 * rarity_scale->damage;
+        if (mob_id == rr_mob_id_golden_meteor)
             health->damage_reduction = 10 * rarity_scale->damage;
         else if (mob_id == rr_mob_id_house_centipede)
         {

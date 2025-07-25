@@ -97,6 +97,10 @@ void rr_component_mob_free(struct rr_component_mob *this,
                  health->squad_damage_counter[squad] <=
                      health->max_health * 0.2)
             continue;
+        else if (this->id == rr_mob_id_golden_meteor &&
+                 health->squad_damage_counter[squad] <=
+                     health->max_health * 0.2)
+            continue;
 
         for (uint8_t pos = 0; pos < RR_SQUAD_MEMBER_COUNT; ++pos)
         {

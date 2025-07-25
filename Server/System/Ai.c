@@ -89,6 +89,9 @@ static void system_for_each(EntityIdx entity, void *simulation)
     case rr_mob_id_meteor:
         tick_ai_meteor(entity, this);
         break;
+    case rr_mob_id_golden_meteor:
+        tick_ai_meteor(entity, this);
+        break;
     case rr_mob_id_pteranodon:
         tick_ai_pteranodon(entity, this);
         break;
